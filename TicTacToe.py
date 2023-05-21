@@ -3,14 +3,9 @@ Project: Project #1 AI Tic Tac Toe
 Course: CAP4630 001
 Team Members: Adam Clark, Mahmood Sakib, Quang Le
 Date: 06/06/2023
-
-Roles:
-    Adam Clark: Architect
-    Quang Le: Developer
-    Mahmood Sakib: Reporter
 '''
 
-
+import math
 import random
 
 # Initialize the game game_board as a dictionary
@@ -20,6 +15,7 @@ game_board = {1: ' ', 2: ' ', 3: ' ',
 
 # Function to display the game game_board
 def show_board(game_board):
+    # Printing the game board in a grid form using the values stored in the dictionary
     print(f" {game_board[1]} | {game_board[2]} | {game_board[3]} ")
     print("===========")
     print(f" {game_board[4]} | {game_board[5]} | {game_board[6]} ")
@@ -28,31 +24,33 @@ def show_board(game_board):
 
 # Function to check for a winner
 def winner_checker(game_board):
-    # Define the winning combinations on the game board
-    winning_combinations = [(1, 2, 3), (4, 5, 6), (7, 8, 9),  # rows
-                            (1, 4, 7), (2, 5, 8), (3, 6, 9),  # columns
-                            (1, 5, 9), (3, 5, 7)]  # diagonals
+    # List of all possible winning combinations
+    winning_combinations = [(1, 2, 3), (4, 5, 6), (7, 8, 9),  
+                            (1, 4, 7), (2, 5, 8), (3, 6, 9),  
+                            (1, 5, 9), (3, 5, 7)]  
 
-    # Check if any of the winning combinations have been achieved by a player
+    # Check if any winning combination matches for 'X' or 'O'
     for combination in winning_combinations:
-        if game_board[combination[0]] == game_board[combination[1]] == game_board[combination[2]] != ' ':
-            return game_board[combination[0]]  # Return the winning player's symbol (X or O)
+        if game_board[combination[0]] == game_board[combination[1]] == game_board[combination[2]] != ' ': # If all 3 values are same and not empty
+            return game_board[combination[0]] 
 
-    # Check if the game board is full and there is no winner (tie)
+    # If all spaces are filled and no winner, it's a tie
     if ' ' not in game_board.values():
         return 'tie'
 
-    return None  # Return None if there is no winner yet
+    # If none of the above conditions are met, game continues
+    return None  
 
 # Function to get the user's move
-def user_move(game_board, player):
+def user_turn(game_board):
+    # Get move from user as input, validate it and return
     while True:
         try:
-            move = int(input(f"Player {player}, please make your move: "))  # Get user input for move
+            move = int(input("Please make your move: ")) 
             if move in range(1, 10) and game_board[move] == ' ':
-                return move  # Return the valid move
+                return move  
             else:
-                print("Invalid move. Please input a valid move.")
+                print("Invalid move please input a valid move")
         except ValueError:
             print("Invalid input. Please enter a number.")
 
@@ -62,33 +60,121 @@ def ai_move(game_board, player):
         move = random.randint(1, 9)  # Generate a random move
         if game_board[move] == ' ':
             return move  # Return the valid move
+            
+# Function to make the AI's move using Minimax
+def min_max_ai_move(game_board):
+    # Initialize best_score to a very small value
+    best_score = -math.inf
+    best_move = None
+    for move in game_board.keys():
+        if game_board[move] == ' ':
+            game_board[move] = 'O'  # Temporarily make a move for 'O'
+            score = min_max(game_board, False)  # Calculate score for that move
+            game_board[move] = ' '  # Undo the move
+            # If this score is better than best_score, update best_score and best_move
+            if score > best_score:
+                best_score = score
+                best_move = move
+    return best_move  
 
-# Main game loop
-def play_game():
-    current_player = 'X'  # Start with player X
+# Minimax algorithm
+def min_max(game_board, is_maximizing):
+    # Get the current game status
+    winner = winner_checker(game_board)
+    # Assign scores if the game is over, based on who has won
+    if winner == 'O':
+        return 1  
+    elif winner == 'X':
+        return -1  
+    elif winner == 'tie':
+        return 0  
 
+    if is_maximizing:  # If this is the maximizing player's turn
+        max_score = -math.inf
+        for move in game_board.keys():
+            if game_board[move] == ' ':
+                game_board[move] = 'O'  # Temporarily make a move
+                score = min_max(game_board, False)  # Calculate score for that move
+                game_board[move] = ' '  # Undo the move
+                # If this score is better than max_score, update max_score
+                if score > max_score:
+                    max_score = score
+        return max_score  
+    else:  # If this is the minimizing player's turn
+        min_score = math.inf
+        for move in game_board.keys():
+            if game_board[move] == ' ':
+                game_board[move] = 'X'  # Temporarily make a move
+                score = min_max(game_board, True)  # Calculate score for that move
+                game_board[move] = ' '  # Undo the move
+                # If this score is less than min_score, update min_score
+                if score < min_score:
+                    min_score = score
+        return min_score 
+
+# Function to play the game
+def play():
+    #reset the game board
+    game_board = {1: ' ', 2: ' ', 3: ' ',
+                  4: ' ', 5: ' ', 6: ' ', 
+                  7: ' ', 8: ' ', 9: ' '}
+    print(
+          "Welcome to Tic Tac Toe You Will Be VS Min-Max AI \n"
+          "========================================================\n"
+          "Game Rules And Instruction:\n"
+          "Enter a number from 1-9 to make a move. The number corresponds to the position on the board as shown below.\n"
+          "1 | 2 | 3\n"
+          "===========\n"
+          "4 | 5 | 6\n"
+          "===========\n"
+          "7 | 8 | 9\n"
+          "You will be playing first and your move is X and AI move will be O.\n"
+          
+          )
+    print("""
+          Yoda: may the force be with you and good luck young padawan!
+       __.-._
+       '-._"7'
+        /'.-c
+        |  /T
+        |_)_/
+        /  '-. \n
+        """)
     while True:
-        show_board(game_board)  # Display the game board
-
-        if current_player == 'X':
-            move = user_move(game_board, current_player)  # Get the current player's move
-        else:
-            move = ai_move(game_board, current_player)  # Get the AI player's move
-            print(f"AI player chooses position {move}")
-
-        game_board[move] = current_player  # Update the game board with the move
-
-        winner = winner_checker(game_board)  # Check for a winner
+        show_board(game_board)
+        move = user_turn(game_board)
+        game_board[move] = 'X'
+        winner = winner_checker(game_board)
         if winner:
-            show_board(game_board)  # Display the final game board
-            if winner == 'tie':
-                print("It's a tie!")
+            show_board(game_board)
+            if winner == 'X':
+                print('You won!')
+            elif winner == 'O':
+                print('AI won!')
+                print('AI: That was too ez')
             else:
-                print(f"Player {winner} wins!")
+                print('Its a tie!')
             break
 
-        # Switch to the other player for the next turn
-        current_player = 'O' if current_player == 'X' else 'X'
-
-# Start the game
-play_game()
+        
+        move = min_max_ai_move(game_board)
+        game_board[move] = 'O'
+        winner = winner_checker(game_board)
+        if winner:
+            show_board(game_board)
+            if winner == 'X':
+                print('You won!')
+            elif winner == 'O':
+                print('AI won!')
+                print('AI: That was too ez')
+            else:
+                print('Its a tie!')
+            break 
+            
+if __name__ == "__main__":
+    #play again loop
+    while True:
+        play()
+        play_again = input("Do you want to play another round? Y or N: ").lower()
+        if play_again not in ['y', 'yes']:
+            break
