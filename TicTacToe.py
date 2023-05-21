@@ -1,3 +1,5 @@
+import random
+
 # Initialize the game game_board as a dictionary
 game_board = {1: ' ', 2: ' ', 3: ' ',
               4: ' ', 5: ' ', 6: ' ',
@@ -41,6 +43,13 @@ def user_move(game_board, player):
         except ValueError:
             print("Invalid input. Please enter a number.")
 
+# Function to get the AI player's move
+def ai_move(game_board, player):
+    while True:
+        move = random.randint(1, 9)  # Generate a random move
+        if game_board[move] == ' ':
+            return move  # Return the valid move
+
 # Main game loop
 def play_game():
     current_player = 'X'  # Start with player X
@@ -48,7 +57,12 @@ def play_game():
     while True:
         show_board(game_board)  # Display the game board
 
-        move = user_move(game_board, current_player)  # Get the current player's move
+        if current_player == 'X':
+            move = user_move(game_board, current_player)  # Get the current player's move
+        else:
+            move = ai_move(game_board, current_player)  # Get the AI player's move
+            print(f"AI player chooses position {move}")
+
         game_board[move] = current_player  # Update the game board with the move
 
         winner = winner_checker(game_board)  # Check for a winner
