@@ -54,12 +54,19 @@ def user_turn(game_board):
         except ValueError:
             print("Invalid input. Please enter a number.")
 
-# Function to get the AI player's move
-def ai_move(game_board, player):
-    while True:
-        move = random.randint(1, 9)  # Generate a random move
+def random_ai(game_board):
+    # Create a list to store available moves
+    available_moves = []
+
+    # Iterate over the keys in the game_board dictionary
+    for move in game_board.keys():
+        # Check if the corresponding value in the game_board is an empty space
         if game_board[move] == ' ':
-            return move  # Return the valid move
+            # If it is, add the move to the list of available moves
+            available_moves.append(move)
+
+    # Use random.choice() to select a random move from the available moves
+    return random.choice(available_moves)
             
 # Function to make the AI's move using Minimax
 def min_max_ai_move(game_board):
