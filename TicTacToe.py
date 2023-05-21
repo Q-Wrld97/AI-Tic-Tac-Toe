@@ -1,3 +1,16 @@
+'''
+Project: Project #1 AI Tic Tac Toe
+Course: CAP4630 001
+Team Members: Adam Clark, Mahmood Sakib, Quang Le
+Date: 06/06/2023
+
+Roles:
+    Adam Clark: Architect
+    Quang Le: Developer
+    Mahmood Sakib: Reporter
+'''
+
+
 import random
 
 # Initialize the game game_board as a dictionary
