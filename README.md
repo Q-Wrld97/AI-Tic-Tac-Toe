@@ -29,7 +29,7 @@ The implementation of the game board representation was changed from a 2D list t
 Minimax AI Implementation and Renaming Variable
     
 #### Details: 
-The Minimax AI algorithm was implemented. The algorithm was implemented using a recursive approach. The algorithm was tested and verified to be working correctly. The Minimax AI was implemented by Quang Le and tested by Adam Clark by feeding AI the multiple variation of game board and checking if it chooses the correct solution.
+The Minimax AI algorithm was implemented. The algorithm was implemented using a recursive approach. At first we ran into a huge infinite recusion loop but after some more research we realize that we never had any terminal state where the recursion would exit which was added by returning the status of the board using winner_checker. The Minimax AI was implemented by Quang Le and tested by Adam Clark by feeding AI the multiple variation of game board and checking if it chooses the correct solution.
 
 
 ## Contributors
