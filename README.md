@@ -75,6 +75,7 @@ The code was updated to include validation and error handling. This includes che
 
 ## Resouces
 -[The Coding Train](https://www.youtube.com/watch?v=trKjYdBASyQ&t=30s)
+
 -[Anmol Chandel](https://github.com/anmolchandelCO180309/tic-tac-toe-using-alpha-beta-pruning)
 
 ## Contributors
