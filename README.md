@@ -1,7 +1,5 @@
 # AI-Tic-Tac-Toe
 
-Using the Min-Max Algorithm and Alpha Beta Pruning, this project implements an AI player that plays tic-tac-toe.
-
 ## Project Overview:
   The AI Tic Tac Toe project aims to create an interactive Tic Tac Toe game where users can play against different AI players. The project implements two AI algorithms, namely Alpha-Beta Pruning and Minimax, along with a random AI player for comparison. Minimax and Alpha-beta pruning AI, the heuristic function is where the AI looks ahead to future game states and scores them. The score reflects how favorable that state is to the AI (basically the AI favor state it can win and dislike state that it lose). The main difference between the two is that Alpha-beta pruning includes a step where it may prune (ignore) branches of the game tree that it has determined will never be favorites, which can speed up the decision making process.
 
@@ -74,9 +72,9 @@ Validation,Error Handling,Alpha-Beta Pruning AI (ExCred) Implementation and Play
 The code was updated to include validation and error handling. This includes checks for invalid user input for the move position. The code also includes checks to ensure that the AI player does not make a move if the game has already ended. This prevents the AI from making an unnecessary move after the game has ended. The validation and error handling was implemented by Quang Le and tested by Adam Clark and Mahmood Sakib by playing the game and testing for invalid inputs and unexpected behavior.The Alpha-Beta Pruning AI algorithm was implemented. The algorithm was implemented similarly to Min-Max but now include pruning to eliminate unfavorable outcome by breaking before a score could be return. The algorithm was tested and verified to be working correctly. The Alpha-Beta Pruning AI was implemented by Quang Le and tested by Adam Clark and Mahmood Sakib by playing the game and checking if the AI makes the correct moves by comparing it to the Minimax AI moves and also comparing time it takes to make a decision. The Alpha-Beta Pruning AI was found to be more efficient and faster than the Minimax AI which is expected. Up until this point if we wanted to switch between AI players we would have to manually comment out the code for the AI we don't want to use and uncomment the code for the AI we want to use. This is not ideal so we decided to implement a way for the user to choose which AI they want to play against. This was implemented by Adam Clark and Mahmood Sakib and tested by Quang Le by playing the game and selecting different AI players and verifying that the correct AI player is selected. The final touch up for our code was breaking up the main code into smaller function making it more modular and readable. This was implemented by Adam Clark and tested by Quang Le and Mahmood Sakib by playing the game and verifying that the game still works as intended.
 
 ## Resouces
--[The Coding Train](https://www.youtube.com/watch?v=trKjYdBASyQ&t=30s)
+- [The Coding Train](https://www.youtube.com/watch?v=trKjYdBASyQ&t=30s)
 
--[Anmol Chandel](https://github.com/anmolchandelCO180309/tic-tac-toe-using-alpha-beta-pruning)
+- [Anmol Chandel](https://github.com/anmolchandelCO180309/tic-tac-toe-using-alpha-beta-pruning)
 
 ## Contributors
 - [Mahmood Sakib](https://github.com/mSakib20)
