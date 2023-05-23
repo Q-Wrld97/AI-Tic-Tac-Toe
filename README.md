@@ -40,37 +40,37 @@ Using the Min-Max Algorithm and Alpha Beta Pruning, this project implements an A
 
 ### Date: 5/19/2023
 
-#### Description
+#### **Description**
 
 Met and discussed project specifications, deliverables, and initial implementation.
 
-#### Details
+#### **Details**
 
 The initial implementation of the Tic Tac Toe game was completed. The game board was represented using a simple 2D list. Basic functionalities such as displaying the board, getting user input, and checking for a winner were implemented. At this stage, the game was limited to player vs. player mode, and no AI players were involved in the gameplay. The initial implementation was proposed by Mahmood Sakib and implemented by Quang Le.
 
 ### Date: 5/20/2023
 
-#### Description
+#### **Description**
 Changes to the implementation and GitHub repository made.
 
-#### Details
+#### **Details**
 
 The implementation of the game board representation was changed from a 2D list to a dictionary. This change was proposed by Adam Clark and implemented by Quang Le with the assistance of Mahmood Sakib. The use of a dictionary simplified the access to board positions and improved the efficiency of the code. This modification enhanced the implementation and paved the way for future enhancements, such as the addition of AI players. Additionally, a random AI player was added for comparison. The random AI player was implemented by Quang Le and tested by Adam Clark and Mahmood Sakib by playing against the AI and verifying that the AI makes random moves. Furthermore, a game play loop was created to ask the user if they want to play again. This feature was implemented by Adam Clark and tested by Quang Le and Mahmood Sakib by playing the game, checking if the game asks the user if they want to play again, and resetting the game board by clearing out all dictionary values.
 
 ### Date: 5/21/2023
 
-#### Description: 
+#### **Description**
 Minimax AI Implementation and Renaming Variable
     
-#### Details: 
+#### **Details**
 The Minimax AI algorithm was implemented. The algorithm was implemented using a recursive approach. At first we ran into a huge infinite recusion loop but after some more research we realize that we never had any terminal state where the recursion would exit which was added by returning the status of the board using winner_checker. The Minimax AI was implemented by Quang Le and tested by Adam Clark by feeding AI the multiple variation of game board and checking if it chooses the correct solution.
 
 ### Date: 5/22/2023-5/23/2023
 
-#### Description: 
+#### **Description**
 Validation,Error Handling,Alpha-Beta Pruning AI (ExCred) Implementation and Player Choice for AI, Modularization of Code
     
-#### Details: 
+#### **Details**
 The code was updated to include validation and error handling. This includes checks for invalid user input for the move position. The code also includes checks to ensure that the AI player does not make a move if the game has already ended. This prevents the AI from making an unnecessary move after the game has ended. The validation and error handling was implemented by Quang Le and tested by Adam Clark and Mahmood Sakib by playing the game and testing for invalid inputs and unexpected behavior.The Alpha-Beta Pruning AI algorithm was implemented. The algorithm was implemented similarly to Min-Max but now include pruning to eliminate unfavorable outcome by breaking before a score could be return. The algorithm was tested and verified to be working correctly. The Alpha-Beta Pruning AI was implemented by Quang Le and tested by Adam Clark and Mahmood Sakib by playing the game and checking if the AI makes the correct moves by comparing it to the Minimax AI moves and also comparing time it takes to make a decision. The Alpha-Beta Pruning AI was found to be more efficient and faster than the Minimax AI which is expected. Up until this point if we wanted to switch between AI players we would have to manually comment out the code for the AI we don't want to use and uncomment the code for the AI we want to use. This is not ideal so we decided to implement a way for the user to choose which AI they want to play against. This was implemented by Adam Clark and Mahmood Sakib and tested by Quang Le by playing the game and selecting different AI players and verifying that the correct AI player is selected. The final touch up for our code was breaking up the main code into smaller function making it more modular and readable. This was implemented by Adam Clark and tested by Quang Le and Mahmood Sakib by playing the game and verifying that the game still works as intended.
 
 ## Resouces
