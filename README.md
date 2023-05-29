@@ -15,7 +15,6 @@
     for row in board:
       for position in row:
           print(position, end=' ')
-      print()
   ```
 
   This nested loop structure can become more complex and less readable as the board size increases or when performing operations that require accessing specific positions.
