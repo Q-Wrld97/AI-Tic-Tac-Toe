@@ -1,0 +1,31 @@
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  width: 250px;
+  margin: 50px auto;
+}
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  border: 1px solid black;
+  font-size: 24px;
+  cursor: pointer;
+}
+.winner {
+  text-align: center;
+  font-size: 48px;
+  margin-bottom: 20px;
+  display: {% if winner %}block{% else %}none{% endif %};
+}
+#reset-button {
+  display: none;
+  margin-top: 20px;
+}
+.instructions {
+  margin-top: 20px;
+  text-align: center;
+}

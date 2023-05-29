@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="winner">
+        {% if winner == 'X' %}
+            You Win
+        {% elif winner == 'O' %}
+            AI Wins
+        {% elif winner == 'tie' %}
+            Tie
+        {% endif %}
+    </div>
+    <div class="game-board">
+        <div class="cell" id="cell1" onclick="makeMove(1)">{{ game_board[1] }}</div>
+        <div class="cell" id="cell2" onclick="makeMove(2)">{{ game_board[2] }}</div>
+        <div class="cell" id="cell3" onclick="makeMove(3)">{{ game_board[3] }}</div>
+        <div class="cell" id="cell4" onclick="makeMove(4)">{{ game_board[4] }}</div>
+        <div class="cell" id="cell5" onclick="makeMove(5)">{{ game_board[5] }}</div>
+        <div class="cell" id="cell6" onclick="makeMove(6)">{{ game_board[6] }}</div>
+        <div class="cell" id="cell7" onclick="makeMove(7)">{{ game_board[7] }}</div>
+        <div class="cell" id="cell8" onclick="makeMove(8)">{{ game_board[8] }}</div>
+        <div class="cell" id="cell9" onclick="makeMove(9)">{{ game_board[9] }}</div>
+    </div>
+    <div class="ai-choice">
+        <label>AI Type:</label><br>
+        <input type="radio" id="min_max" name="ai_type" value="min_max" {% if ai_type == 'min_max' %} checked {% endif %}>
+        <label for="min_max">MinMax</label><br>
+        <input type="radio" id="alphabeta" name="ai_type" value="alphabeta" {% if ai_type == 'alphabeta' %} checked {% endif %}>
+        <label for="alphabeta">AlphaBeta</label><br>
+        <input type="radio" id="random" name="ai_type" value="random" {% if ai_type == 'random' %} checked {% endif %}>
+        <label for="random">Random</label><br>
+    </div>
+    {% if game_end %}
+    <div class="reset-btn">
+        <button onclick="resetGame()">Reset Game</button>
+    </div>
+    {% endif %}
+
+    <div class="instructions">
+        <h3>Instructions:</h3>
+        <p>Choose your AI opponent by selecting an AI type (MinMax, AlphaBeta, or Random) you can change the AI at ANYTIME. Click on a cell to make your move. The AI will then make its move. The game continues until there is a winner or a tie.</p>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

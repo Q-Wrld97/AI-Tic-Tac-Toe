@@ -7,11 +7,14 @@
   **AI Player Selection**: The project provides three AI player options: Alpha-Beta Pruning AI, Minimax AI, and Random AI. This allows users to choose the level of experience of different AI strategies. The Alpha-Beta Pruning AI and Minimax AI are both unbeatable, but the Alpha-Beta Pruning AI is more efficient and makes fewer calculations, leading to faster gameplay. The Random AI is a simple AI that makes random moves and is easy to beat.
 
   **Board Representation**: The Tic Tac Toe game board is represented using a dictionary in Python. Each key-value pair represents a position on the game board where the key is the position on the board and the value is the current symbol ('X', 'O', or an empty space). This representation allows for easy access to the game_board positions and simplifies the implementation of the game logic. (i.e game_board[1] = 'X' represents the top left position on the game_board and game_board[9] = 'O' represents the bottom right position on the game_board). Originally the thought was to use 2D list but after some debating we decided to use dictionary because The dictionary representation simplifies the game logic by providing intuitive access to board positions using keys. It eliminates the need for nested loops or complex indexing required in a 2D list representation
-    i.e game_board[1][1] = 'X' represent top left position.
+  
+    `python
+	game_board[1][1] = 'X' represent top left position.
     for row in board:
       for position in row:
           print(position, end=' ')
-      print()
+      print()`
+      
   This nested loop structure can become more complex and less readable as the board size increases or when performing operations that require accessing specific positions.
   
   **Validation**: The implementation include check to validate the user inputs move and ensure it is within the valid range of positions on the game_board. This ensures fair gameplay and prevents invalid moves. Early on in the project, if a player made an invalid move, the AI would still make a move and the game would continue. This was fixed by adding a check to ensure that the player's move is valid before proceeding with the AI's move. 
@@ -70,6 +73,23 @@ Validation,Error Handling,Alpha-Beta Pruning AI (ExCred) Implementation and Play
     
 #### **Details**
 The code was updated to include validation and error handling. This includes checks for invalid user input for the move position. The code also includes checks to ensure that the AI player does not make a move if the game has already ended. This prevents the AI from making an unnecessary move after the game has ended. The validation and error handling was implemented by Quang Le and tested by Adam Clark and Mahmood Sakib by playing the game and testing for invalid inputs and unexpected behavior.The Alpha-Beta Pruning AI algorithm was implemented. The algorithm was implemented similarly to Min-Max but now include pruning to eliminate unfavorable outcome by breaking before a score could be return. The algorithm was tested and verified to be working correctly. The Alpha-Beta Pruning AI was implemented by Quang Le and tested by Adam Clark and Mahmood Sakib by playing the game and checking if the AI makes the correct moves by comparing it to the Minimax AI moves and also comparing time it takes to make a decision. The Alpha-Beta Pruning AI was found to be more efficient and faster than the Minimax AI which is expected. Up until this point if we wanted to switch between AI players we would have to manually comment out the code for the AI we don't want to use and uncomment the code for the AI we want to use. This is not ideal so we decided to implement a way for the user to choose which AI they want to play against. This was implemented by Adam Clark and Mahmood Sakib and tested by Quang Le by playing the game and selecting different AI players and verifying that the correct AI player is selected. The final touch up for our code was breaking up the main code into smaller function making it more modular and readable. This was implemented by Adam Clark and tested by Quang Le and Mahmood Sakib by playing the game and verifying that the game still works as intended.
+
+### Date: 5/23/2023-5/24/2023
+
+#### **Description**  
+Framework Research and Dicussion For Web App Implementation
+
+#### **Details**
+After much research and dicussion we decided that most python Web Framework would be a viable option for the scope of this project. Flask stood out due to its lightweight nature and suitability for small web applications, aligning perfectly with the requirements of our project. Furthermore, Flask comes with a powerful templating engine called Jinja2. This allows for easily render dynamic HTML templates and pass data from Python code to the templates. In the case of a Tic Tac Toe game, this enables us to display the game board and update it dynamically with each move. Finally Flask has a simple and intuitive API, making it easy to learn and use. It provides just the essential features needed for the scope we are working with, making it straightforward to implement the desired functionality.
+
+### Date: 5/24/2023-5/27/2023
+
+####  **Description** 
+Flask Implementation and Testing
+
+#### **Details**
+The Tic Tac Toe game was transformed into a Flask web application by incorporating several key changes. First, the necessary Flask modules were imported, including Flask itself, render_template, and request. The game logic was then integrated into route functions, which were decorated with route decorators to specify the URLs they should respond to. HTML templates were created using the Jinja2 templating engine to define the structure and layout of the web pages. The existing game board display and user input functions were modified to handle HTTP requests and render the appropriate templates. The player's move is now obtained from the request form, and the AI's move is determined based on the selected AI type. The game board, winner status, game end status, and AI type are passed to the template for rendering. Additionally, a route for resetting the game was implemented to reset the game board and render the updated template. The game board is displayed as a grid with clickable cells using JS, and the winner status is shown after end game is reach. The AI type can be selected using radio buttons, allowing the user to choose their opponent which could be change at any point in the game. Instructions are provided to guide the user on how to play the game. JS functions handle user interactions and make requests to the server to update the game state. With these changes, the Tic Tac Toe game was successfully transformed into a dynamic web application using Flask. The web application design was propose by Adam Clark, implemented by Mahmood Sakib and tested by Mahmood Sakib and Quang Le by playing the game and verifying that the game board is displayed correctly and the game logic is working as expected.
+
 
 ## Resouces
 - [The Coding Train](https://www.youtube.com/watch?v=trKjYdBASyQ&t=30s)
