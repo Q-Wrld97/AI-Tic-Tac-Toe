@@ -8,13 +8,16 @@
 
   **Board Representation**: The Tic Tac Toe game board is represented using a dictionary in Python. Each key-value pair represents a position on the game board where the key is the position on the board and the value is the current symbol ('X', 'O', or an empty space). This representation allows for easy access to the game_board positions and simplifies the implementation of the game logic. (i.e game_board[1] = 'X' represents the top left position on the game_board and game_board[9] = 'O' represents the bottom right position on the game_board). Originally the thought was to use 2D list but after some debating we decided to use dictionary because The dictionary representation simplifies the game logic by providing intuitive access to board positions using keys. It eliminates the need for nested loops or complex indexing required in a 2D list representation
   
-    `python
+
+
+  ```python
 	game_board[1][1] = 'X' represent top left position.
     for row in board:
       for position in row:
           print(position, end=' ')
-      print()`
-      
+      print()
+  ```
+
   This nested loop structure can become more complex and less readable as the board size increases or when performing operations that require accessing specific positions.
   
   **Validation**: The implementation include check to validate the user inputs move and ensure it is within the valid range of positions on the game_board. This ensures fair gameplay and prevents invalid moves. Early on in the project, if a player made an invalid move, the AI would still make a move and the game would continue. This was fixed by adding a check to ensure that the player's move is valid before proceeding with the AI's move. 
