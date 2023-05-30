@@ -38,14 +38,15 @@
   **AI Difficulty**: Currently both alpha beta and min_max are unbeatable but a way we can improve this by implementing a random factor to the AI move this will make the AI more fun to play against and less predictable. A possible way to do this is to keep a list of best move and randomly choosing a move from such list or use mean to take the avg move favorable move.
 
 ## How to use FLASK
-  **Installation Process**: ```
+  **Installation Process**: 
+  
   	1. Make sure you have a python kernel install
 	2. in the terminal type ```pip install flask```
 	3. navigate to the flask folder 
 	4. open TicTacToe.py
 	5. Run the python script
 	6. in the terminal it will direct you to a URL e.g http://127.0.0.1:5000 
-	```
+	
 
 ## Report
 
