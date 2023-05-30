@@ -1,26 +1,35 @@
 .game-board {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 5px;
-  width: 250px;
+  gap: 10px;
+  width: 350px;
   margin: 50px auto;
 }
+
 .cell {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80px;
-  height: 80px;
-  border: 1px solid black;
-  font-size: 24px;
+  width: 100px;
+  height: 100px;
+  border: 2px solid #333;
+  font-size: 36px;
   cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  background-color: #f5f5f5;
 }
+
+.cell:hover {
+  background-color: #eaeaea;
+}
+
 .winner {
   text-align: center;
-  font-size: 48px;
-  margin-bottom: 20px;
+  font-size: 40px;
+  margin-bottom: 5px;
   display: {% if winner %}block{% else %}none{% endif %};
 }
+
 #reset-button {
   display: none;
   margin-top: 20px;
@@ -28,4 +37,65 @@
 .instructions {
   margin-top: 20px;
   text-align: center;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+}
+/*Radio button for AI goes here*/
+.ai-choice {
+  text-align: left;
+  padding-right: 240px;
+}
+
+.ai-choice label {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.ai-choice input[type="radio"] {
+  margin-right: 5px;
+}
+
+.ai-choice input[type="radio"]:checked + label {
+  font-weight: bold;
+}
+
+/*Background goes here */
+#banner {
+  background: url(../css/background.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* Play again button goes here */
+.reset-btn {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.reset-btn button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.reset-btn button:hover {
+  background-color: #45a049;
+}
+
+/* TIC TAC TOE display goes here */
+.display-3 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  
 }
