@@ -11,7 +11,7 @@
 
 
   ```python
-	game_board[1][1] = 'X' represent top left position.
+	game_board[0][0] = 'X' represent top left position.
     for row in board:
       for position in row:
           print(position, end=' ')
