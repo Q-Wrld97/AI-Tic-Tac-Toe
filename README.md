@@ -35,7 +35,7 @@
     
   **Object-Oriented Programming (OOP)**:utilize object-oriented programming principles. This can improve code organization, modularity, and maintainability, making it easier to scale and enhance the game in the future.
     
-  **AI Difficulty**: Currently both alpha beta and min_max are unbeatable but a way we can improve this by implementing a random factor to the AI move this will make the AI more fun to play against and less predictable. A possible way to do this is to keep a list of best move and randomly choosing a move from such list or use mean to take the avg move favorable move.
+  **AI Difficulty**: Currently both alpha beta and min_max are unbeatable but a way we can improve this by implementing a random factor to the AI move this will make the AI more fun to play against and less predictable. A possible way to do this is to keep a list of best move and use mean to take the avg move favorable move. Another way is to add in depth parameter and set it to only go two deep from the current state unlike our implementation which play the whole game through
 
 ## How to use FLASK
   **Installation Process**: 
